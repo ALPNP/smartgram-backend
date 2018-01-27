@@ -1,9 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var baseRoute = require('./routes/baseRoute');
+var apiRouter = require('./routes/apiRoutes');
 
 var app = express();
-
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -15,5 +15,6 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', baseRoute);
+app.use('/api', apiRouter);
 
 module.exports = app;
